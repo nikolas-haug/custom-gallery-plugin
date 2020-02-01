@@ -14,10 +14,10 @@ Author URI: https://nikolashaug.com/
 function add_your_fields_meta_box() {
     add_meta_box(
         'your_fields_meta_box',
-        'Your Fields',
+        'Custom Meta Gallery',
         'show_your_fields_meta_box',
         'post',
-        'normal',
+        'side',
         'high'
     );
 }
@@ -42,19 +42,16 @@ function show_your_fields_meta_box() {
 
         </div>
         
-        
-
     <input type="hidden" name="your_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ); ?>">
 
     <!-- All fields will go here -->
 
     <p>
     	<label for="your_fields[image]">Image Upload</label><br>
-        <input type="text" name="your_fields[image]" id="your_fields[image]" class="meta-image regular-text" value="<?php echo $meta['image']; ?>">
+        <input type="hidden" name="your_fields[image]" id="your_fields[image]" class="meta-image regular-text" value="<?php echo $meta['image']; ?>" style="width: 100%;">
         <input id="clear-gallery" class="button" type="button"value="<?php esc_html_e('Clear', 'mytheme') ?>"/>
     	<input type="button" class="button image-upload" value="Browse">
     </p>
-    <!-- <div class="image-preview"><img src="<?php echo $meta['image']; ?>" style="max-width: 250px;"></div> -->
 
     <?php }
 
