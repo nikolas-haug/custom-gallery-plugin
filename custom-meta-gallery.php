@@ -2,7 +2,7 @@
 /* 
 Plugin Name: Custom Meta Gallery
 Plugin URI: https://nikolashaug.com/
-Description: An image uploader that allows for multiple images on posts
+Description: An image uploader that allows for multiple images on posts - includes basic column text input
 Author: Niko
 Version: 1.0
 Author URI: https://nikolashaug.com/
@@ -49,7 +49,7 @@ function show_your_fields_meta_box() {
 
     <p>
     	<label for="your_fields[image]">Image Upload</label><br>
-        <input type="hidden" name="your_fields[image]" id="your_fields[image]" class="meta-image regular-text" value="<?php echo $meta['image']; ?>" style="width: 100%;">
+        <input type="hidden" name="your_fields[image]" id="your_fields[image]" class="meta-image regular-text" value="<?php if(is_array($meta) && isset($meta['image'])){ echo $meta['image']; }?>" style="width: 100%;">
         <input id="clear-gallery" class="button" type="button"value="<?php esc_html_e('Clear', 'mytheme') ?>"/>
     	<input type="button" class="button image-upload" value="Browse">
     </p>
@@ -57,7 +57,7 @@ function show_your_fields_meta_box() {
     <!-- Text input for gallery column widths -->
     <p>
         <label for="your_fields[text]">Column Details:</label>
-        <input type="text" name="your_fields[text]" id="your_fields[text]" value="<?php echo $meta['text']; ?>">
+        <input type="text" name="your_fields[text]" id="your_fields[text]" value="<?php if(is_array($meta) && isset($meta['text'])){ echo $meta['text']; } ?>">
     </p>
 
     <?php }
