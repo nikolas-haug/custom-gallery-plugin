@@ -35,8 +35,8 @@ function show_your_fields_meta_box() {
         <?php $image_ids = explode( ',', $meta['image'] );
                 foreach($image_ids as $image_id) {
                     ?>
-                    <div class="container-sm">
-                        <img src="<?php echo $image_id; ?>" style="width: 250px;">
+                    <div>
+                        <img src="<?php echo $image_id; ?>" style="width: 100%;">
                     </div>
                     <?php
                 }
@@ -54,7 +54,7 @@ function show_your_fields_meta_box() {
     	<input type="button" class="button image-upload" value="Browse">
     </p>
 
-    <!-- Check boxes for gallery layout/image sizes -->
+    <!-- Text input for gallery column widths -->
     <p>
         <label for="your_fields[text]">Column Details:</label>
         <input type="text" name="your_fields[text]" id="your_fields[text]" value="<?php echo $meta['text']; ?>">
@@ -98,3 +98,14 @@ function save_your_fields_meta($post_id) {
     }
 }
 add_action( 'save_post', 'save_your_fields_meta' );
+
+/**
+ * Add the meta box stylesheet when appropriate
+ */
+function custom_meta_gallery_styles() {
+    global $typenow;
+    if($typenow == 'page') {
+        wp_enqueue_style( 'custom_meta_gallery_styles', plugin_dir_url(__FILE__) . 'custom-meta-gallery.css' );
+    }
+}
+add_action( 'admin_print_styles', 'custom_meta_gallery_styles' );

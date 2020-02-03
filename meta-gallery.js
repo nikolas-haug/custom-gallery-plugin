@@ -50,7 +50,8 @@
         // console.log(media_attachment);
         media_attachment.forEach(image => {
 
-            preview_html = "<div><img style='width: 100px;' src='" + image.url + "'/></div>";
+            // Adjust size if not on sidebar
+            preview_html = "<div><img style='width: 100%;' src='" + image.url + "'/></div>";
 
             meta_image_preview.append(preview_html);
 
