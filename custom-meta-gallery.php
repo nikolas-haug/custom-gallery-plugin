@@ -16,16 +16,19 @@ function add_your_fields_meta_box() {
         'your_fields_meta_box',
         'Custom Meta Gallery',
         'show_your_fields_meta_box',
-        'post',
+        'page',
         'side',
         'high'
     );
 }
 add_action( 'add_meta_boxes', 'add_your_fields_meta_box' );
 
+
 function show_your_fields_meta_box() {
     global $post;
         $meta = get_post_meta( $post->ID, 'your_fields', true ); ?>
+
+        <!-- Image uploader -->
 
         <div class="image-preview">
 
@@ -44,13 +47,17 @@ function show_your_fields_meta_box() {
         
     <input type="hidden" name="your_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ); ?>">
 
-    <!-- All fields will go here -->
-
     <p>
     	<label for="your_fields[image]">Image Upload</label><br>
         <input type="hidden" name="your_fields[image]" id="your_fields[image]" class="meta-image regular-text" value="<?php echo $meta['image']; ?>" style="width: 100%;">
         <input id="clear-gallery" class="button" type="button"value="<?php esc_html_e('Clear', 'mytheme') ?>"/>
     	<input type="button" class="button image-upload" value="Browse">
+    </p>
+
+    <!-- Check boxes for gallery layout/image sizes -->
+    <p>
+        <label for="your_fields[text]">Column Details:</label>
+        <input type="text" name="your_fields[text]" id="your_fields[text]" value="<?php echo $meta['text']; ?>">
     </p>
 
     <?php }
