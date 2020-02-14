@@ -60,6 +60,13 @@ function show_your_fields_meta_box() {
         <input type="text" name="your_fields[text]" id="your_fields[text]" value="<?php if(is_array($meta) && isset($meta['text'])){ echo $meta['text']; } ?>">
     </p>
 
+    <!-- <p>
+    	<label for="your_fields[checkbox]">Checkbox
+    		<input type="checkbox" name="your_fields[checkbox]" value="checkbox" <?php if ( $meta['checkbox'] === 'checkbox' ) echo 'checked'; ?>>
+    	</label>
+    </p> -->
+
+
     <?php }
 
 
