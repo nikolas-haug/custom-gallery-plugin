@@ -2,9 +2,9 @@
 /* 
 Plugin Name: Custom Meta Gallery
 Plugin URI: https://nikolashaug.com/
-Description: An image uploader that allows for multiple images on posts - includes basic column text input
+Description: An image uploader that allows for multiple images on posts - includes basic column text input and radio button gallery size selectors
 Author: Niko
-Version: 1.0
+Version: 1.2
 Author URI: https://nikolashaug.com/
 */
 
@@ -60,12 +60,29 @@ function show_your_fields_meta_box() {
         <input type="text" name="your_fields[text]" id="your_fields[text]" value="<?php if(is_array($meta) && isset($meta['text'])){ echo $meta['text']; } ?>">
     </p>
 
-    <!-- <p>
-    	<label for="your_fields[checkbox]">Checkbox
-    		<input type="checkbox" name="your_fields[checkbox]" value="checkbox" <?php if ( $meta['checkbox'] === 'checkbox' ) echo 'checked'; ?>>
-    	</label>
-    </p> -->
-
+    <!-- Radio buttons - same names with different values for selection of gallery size -->
+    <p>
+        <span>
+            <div class="radio-button__group"> 
+                <label for="meta-radio-one">
+                    <input type="radio" name="your_fields[radio]" id="meta-radio-one" value="radio-one" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], 'radio-one' ); ?>>
+                    <?php _e( 'Radio Option #1', 'prfx-textdomain' )?>
+                </label>
+                <label for="meta-radio-two">
+                    <input type="radio" name="your_fields[radio]" id="meta-radio-two" value="radio-two" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], 'radio-two' ); ?>>
+                    <?php _e( 'Radio Option #2', 'prfx-textdomain' )?>
+                </label>
+                <label for="meta-radio-three">
+                    <input type="radio" name="your_fields[radio]" id="meta-radio-three" value="radio-three" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], 'radio-three' ); ?>>
+                    <?php _e( 'Radio Option #3', 'prfx-textdomain' )?>
+                </label>
+                <label for="meta-radio-four">
+                    <input type="radio" name="your_fields[radio]" id="meta-radio-four" value="radio-four" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], 'radio-four' ); ?>>
+                    <?php _e( 'Radio Option #4', 'prfx-textdomain' )?>
+                </label>
+            </div>
+        </span>
+    </p>
 
     <?php }
 

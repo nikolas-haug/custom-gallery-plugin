@@ -1,3 +1,7 @@
 label {
     font-weight: 700;
 }
+
+.radio-button__group label {
+    display: block;
+}
