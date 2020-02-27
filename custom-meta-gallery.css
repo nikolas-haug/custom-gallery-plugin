@@ -5,3 +5,7 @@ label {
 .radio-button__group label {
     display: block;
 }
+
+.radio-button__group label [name="your_fields[radio]"]:checked {
+    background: orange;
+}

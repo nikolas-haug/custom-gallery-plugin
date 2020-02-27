@@ -1,4 +1,30 @@
   jQuery(document).ready(function($) {
+
+    // clear image preview div
+    function clearDivImages() {
+      // Get preview pane
+      var image_div = $(this)
+      .parent()
+      .parent()
+      .children('.image-preview');
+
+      var meta_image = $(this)
+      .parent()
+      .children('.meta-image')
+
+      image_div.empty();
+      meta_image.val('');
+    }
+
+    // get default value of selected radio button
+    var meta_radio_value = $('.radio-button__group label [name="your_fields[radio]"]:checked').val();
+
+    // Update meta radio button value upon selection
+    $('input[name="your_fields[radio]"]').on('change', function() {
+      // console.log('changed to: ' + $(this).val());
+      meta_radio_value = $(this).val();
+      // console.log('Meta radio var changed to: ' + meta_radio_value);
+    }); 
     
     // Instantiates the variable that holds the media library frame.
     var meta_image_frame;
@@ -30,6 +56,7 @@
 
       // Runs when an image is selected.
       meta_image_frame.on('select', function() {
+        console.log('image selected');
         // Grabs the attachment selection and creates a JSON representation of the model.
         var media_attachment = meta_image_frame
           .state()
@@ -46,6 +73,14 @@
         const ids = media_attachment.map(image => {
             chosenImgs.push(image.url);
         });
+
+        // Comnpare selected image template with number of chosen images
+        if(chosenImgs.length > 2) {
+          alert('Selected template allows for ' + meta_radio_value + ' images. Please reselect.');
+          clearDivImages();
+          meta_image_frame.open();
+          return;
+        }
 
         // console.log(media_attachment);
         media_attachment.forEach(image => {
@@ -65,20 +100,6 @@
     });
 
     // Clear selected images
-    $('#clear-gallery').on('click', function() {
-        // Get preview pane
-        var image_div = $(this)
-        .parent()
-        .parent()
-        .children('.image-preview');
-
-        var meta_image = $(this)
-        .parent()
-        .children('.meta-image')
-
-        image_div.empty();
-        meta_image.val('');
-
-    });
+    $('#clear-gallery').on('click', clearDivImages);
 
   });

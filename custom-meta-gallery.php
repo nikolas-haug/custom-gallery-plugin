@@ -65,7 +65,7 @@ function show_your_fields_meta_box() {
         <span>
             <div class="radio-button__group"> 
                 <label for="meta-radio-one">
-                    <input type="radio" name="your_fields[radio]" id="meta-radio-one" value="radio-one" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], 'radio-one' ); ?>>
+                    <input type="radio" name="your_fields[radio]" id="meta-radio-one" value="radio-one" <?php isset ( $meta['radio'] ) ? checked( $meta['radio'], 'radio-one' ) : checked('checked', 'checked'); ?>>
                     <?php _e( 'Radio Option #1', 'prfx-textdomain' )?>
                 </label>
                 <label for="meta-radio-two">
