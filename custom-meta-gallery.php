@@ -65,19 +65,19 @@ function show_your_fields_meta_box() {
         <span>
             <div class="radio-button__group"> 
                 <label for="meta-radio-one">
-                    <input type="radio" name="your_fields[radio]" id="meta-radio-one" value="radio-one" <?php isset ( $meta['radio'] ) ? checked( $meta['radio'], 'radio-one' ) : checked('checked', 'checked'); ?>>
+                    <input type="radio" name="your_fields[radio]" id="meta-radio-one" value="1,2,3" <?php isset ( $meta['radio'] ) ? checked( $meta['radio'], '1,2,3' ) : checked('checked', 'checked'); ?>>
                     <?php _e( 'Radio Option #1', 'prfx-textdomain' )?>
                 </label>
                 <label for="meta-radio-two">
-                    <input type="radio" name="your_fields[radio]" id="meta-radio-two" value="radio-two" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], 'radio-two' ); ?>>
+                    <input type="radio" name="your_fields[radio]" id="meta-radio-two" value="2,3,4" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], '2,3,4' ); ?>>
                     <?php _e( 'Radio Option #2', 'prfx-textdomain' )?>
                 </label>
                 <label for="meta-radio-three">
-                    <input type="radio" name="your_fields[radio]" id="meta-radio-three" value="radio-three" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], 'radio-three' ); ?>>
+                    <input type="radio" name="your_fields[radio]" id="meta-radio-three" value="3,4,5,6" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], '3,4,5,6' ); ?>>
                     <?php _e( 'Radio Option #3', 'prfx-textdomain' )?>
                 </label>
                 <label for="meta-radio-four">
-                    <input type="radio" name="your_fields[radio]" id="meta-radio-four" value="radio-four" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], 'radio-four' ); ?>>
+                    <input type="radio" name="your_fields[radio]" id="meta-radio-four" value="1" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], '1' ); ?>>
                     <?php _e( 'Radio Option #4', 'prfx-textdomain' )?>
                 </label>
             </div>

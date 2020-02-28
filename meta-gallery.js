@@ -21,9 +21,9 @@
 
     // Update meta radio button value upon selection
     $('input[name="your_fields[radio]"]').on('change', function() {
-      // console.log('changed to: ' + $(this).val());
+      console.log('changed to: ' + $(this).val());
       meta_radio_value = $(this).val();
-      // console.log('Meta radio var changed to: ' + meta_radio_value);
+      console.log('Meta radio var changed to: ' + meta_radio_value);
     }); 
     
     // Instantiates the variable that holds the media library frame.
@@ -75,8 +75,8 @@
         });
 
         // Comnpare selected image template with number of chosen images
-        if(chosenImgs.length > 2) {
-          alert('Selected template allows for ' + meta_radio_value + ' images. Please reselect.');
+        if(chosenImgs.length > meta_radio_value.split(',').length) {
+          alert('Selected template allows for ' + meta_radio_value.split(',').length + ' images. Please reselect.');
           clearDivImages();
           meta_image_frame.open();
           return;
