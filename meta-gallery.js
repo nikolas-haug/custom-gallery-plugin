@@ -75,8 +75,8 @@
         });
 
         // Comnpare selected image template with number of chosen images
-        if(chosenImgs.length > meta_radio_value.split(',').length) {
-          alert('Selected template allows for ' + meta_radio_value.split(',').length + ' images. Please reselect.');
+        if(chosenImgs.length !== meta_radio_value.split(',').length) {
+          alert(`Selected template needs ${meta_radio_value.split(',').length} image${meta_radio_value.split(',').length > 1 ? 's' : ''}. You need to reselect.`);
           clearDivImages();
           meta_image_frame.open();
           return;

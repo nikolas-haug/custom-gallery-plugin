@@ -74,9 +74,13 @@ function show_your_fields_meta_box() {
                     <input type="radio" name="your_fields[radio]" id="meta-radio-four" value="4,4,4" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], '4,4,4' ); ?>>
                     <?php _e( '4 x 4 x 4', 'prfx-textdomain' )?>
                 </label>
-                <label for="meta-radio-four">
+                <label for="meta-radio-five">
                     <input type="radio" name="your_fields[radio]" id="meta-radio-five" value="4,8" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], '4,8' ); ?>>
                     <?php _e( '4 x 8', 'prfx-textdomain' )?>
+                </label>
+                <label for="meta-radio-six">
+                    <input type="radio" name="your_fields[radio]" id="meta-radio-six" value="12" <?php if ( isset ( $meta['radio'] ) ) checked( $meta['radio'], '4,8' ); ?>>
+                    <?php _e( '12', 'prfx-textdomain' )?>
                 </label>
             </div>
         </span>
